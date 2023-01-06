@@ -9,7 +9,20 @@
 	   }
          else
 	   {
-             $route = $_GET['route'];
+                 $route = $_GET['route'];				
+			$rt=explode('/', $route);
+			$route=$rt[(count($rt)-1)]; 
+			if(count($rt)>1){
+			if($rt[(count($rt)-2)]=="product"){			
+				$db=DB::getInstance();
+				$result=$db->connect()->query("SELECT * FROM shop WHERE url like '$route'");	
+				if($result->rowCount()){
+				$row=$result->fetch(PDO::FETCH_ASSOC);
+				$_REQUEST['id']=$row['ID'];
+				$route="product";
+	}
+				
+			}}
 	   }
 		return $route;
     }

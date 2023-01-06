@@ -24,7 +24,7 @@ function create_cards(){
               <!-- Product actions-->
               <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                 <div class="text-center">
-                  <a class="btn btn-outline-dark mt-auto" href="'.$row['URL'].'">VIEW</a>
+                  <a class="btn btn-outline-dark mt-auto" href="/shop/product/'.$row['URL'].'">VIEW</a>
                 </div>
               </div>
             </div>
