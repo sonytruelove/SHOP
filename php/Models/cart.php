@@ -1,5 +1,5 @@
 <?php
-class Application_Models_Cart
+class php_Models_cart
   {  
     function addToCart($id, $count=1)
     {        
@@ -8,7 +8,7 @@ class Application_Models_Cart
     }    
      
     function delFromCart($id, $count=1){}
-     
+     function checkCart(){$_SESSION['cart'][$id];}
     function clearCart(){}
   }
 ?>

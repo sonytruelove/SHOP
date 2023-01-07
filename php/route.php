@@ -18,7 +18,7 @@
 				$result=$db->connect()->query("SELECT * FROM shop WHERE url like '$route'");	
 				if($result->rowCount()){
 				$row=$result->fetch(PDO::FETCH_ASSOC);
-				$_REQUEST['id']=$row['ID'];
+				$_REQUEST['ID']=$row['ID'];
 				$route="product";
 	}
 				

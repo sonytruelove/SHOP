@@ -12,6 +12,6 @@
 	
 </div>
 	<div class=" p-4 pt-2 bg-transparent">
-                  <a class="  fw-bolder fw-5 display-4 justify-content-center d-flex  btn-outline-dark mt-auto  " href="#">Add to cart</a>
+                  <a class="  fw-bolder fw-5 display-4 justify-content-center d-flex  btn-outline-dark mt-auto  " href="?in-cart-product-id=<?=$product['ID']?>">Add to cart</a>
 
 	</div>
