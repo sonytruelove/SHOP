@@ -28,19 +28,21 @@
     }
 
     private function getController()
-	{       
+	{          
        $route=$this->getRoute();
+	if($route!="admin"){
        $path_contr = 'php/Controllers/';
        $controller= $path_contr. $route . '.php';
-       return $controller;
+       return $controller;}
     }
 	 
 	public function getView()
 	{
        $route=$this->getRoute();
+	   if($route!="admin"){
        $path_view = 'php/Views/' ;
        $view = $path_view . $route . '.php';
-       return $view;
+       return $view;}
     }
 	 
 	public function Run()

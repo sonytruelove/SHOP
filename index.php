@@ -19,14 +19,17 @@
 	$route=new Route;
 	$member=$route->Run();
 	$member['init']=0;
-  	foreach ($member as $key => $value)
-	{
-	 	$$key= $value;
-	} 
+	if(isset($member)){
+  		foreach ($member as $key => $value)
+		{
+	 		$$key= $value;
+		} 
+		
 	include_once 'php/template/navigation.html'; 
  	include_once 'php/template/header.html';
 	$view=$route->getView();
-	include ($view); 
+	include ($view);
+	} 
  	include_once 'php/template/footer.html';?>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

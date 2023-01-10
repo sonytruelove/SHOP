@@ -20,7 +20,7 @@
         </div>
         <div>
           <h3 class="fs-2">Best Quality</h3>
-          <p>We have the best quality on the marketCheck it out for yourself!</p>
+          <p>We have the best quality on the market. Check it out for yourself!</p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
