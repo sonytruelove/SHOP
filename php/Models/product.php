@@ -17,15 +17,14 @@ function addProduct($array)
 		$image=file_get_contents($image_url);
 		echo $image;
 		if(strlen($array['url'])>60)$array['url']=	substr($array['url'], 0, 60);
-		//äëÿ ÷èñòîòû ğàáîòû, òóò ëó÷øå ïğîâåğèòü íà óæå ñóùåñòâóşùèå url,
+		//Ğ´Ğ»Ñ Ñ‡Ğ¸ÑÑ‚Ğ¾Ñ‚Ñ‹ Ñ€Ğ°Ğ±Ğ¾Ñ‚Ñ‹, Ñ‚ÑƒÑ‚ Ğ»ÑƒÑ‡ÑˆĞµ Ğ¿Ñ€Ğ¾Ğ²ĞµÑ€Ğ¸Ñ‚ÑŒ Ğ½Ğ° ÑƒĞ¶Ğµ ÑÑƒÑ‰ĞµÑÑ‚Ğ²ÑƒÑÑ‰Ğ¸Ğµ url,
 			$db=DB::getInstance();
-	$iquery = "INSERT INTO shop(ID, TITLE, PRICE, IMAGE, URL, DESCRIPTION) VALUES (?, ?, ?, ?, ?, ?)";
+	$iquery = "INSERT INTO shop(TITLE, PRICE, IMAGE, URL, DESCRIPTION) VALUES (?, ?, ?, ?, ?)";
 	$stmt = $db->connect()->prepare($iquery);
-	$stmt->bindParam(1,$array['id'],PDO::PARAM_INT,11);
-	$stmt->bindParam(2,$array['title'],PDO::PARAM_STR,25);
-	$stmt->bindParam(3,$array['price'],PDO::PARAM_INT,11);
-	$stmt->bindParam(4,$image,PDO::PARAM_LOB);
-	$stmt->bindParam(5,$array['url'],PDO::PARAM_STR,40);
+	$stmt->bindParam(1,$array['title'],PDO::PARAM_STR,25);
+	$stmt->bindParam(2,$array['price'],PDO::PARAM_INT,11);
+	$stmt->bindParam(3,$image,PDO::PARAM_LOB);
+	$stmt->bindParam(4,$array['url'],PDO::PARAM_STR,40);
 	$stmt->bindParam(5,$array['desc'],PDO::PARAM_STR,40);
     $stmt->execute();
 			if($stmt->execute()){
@@ -48,7 +47,9 @@ function deleteProduct($id)
 function updateProduct($array,$id)
 	  { 	
 		$db=DB::getInstance();
-		if($db->connect()->prepare("UPDATE shop SET TITLE=?,PRICE=?,IMAGE=?,DESC=? WHERE ID = ?")->execute([$array['title'],$array['price'],$array['image_url'],$array['desc'],$id])){		   
+		if($db->connect()->prepare("UPDATE shop SET TITLE=?,PRICE=?,IMAGE=?,DESC=? WHERE ID = ?")->execute([$array['title'],$array['price'],$array['image_url'],$array['desc'],
+
+$id])){		   
 				return true;
 			}
 		return	false;
