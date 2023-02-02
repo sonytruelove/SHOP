@@ -1,4 +1,4 @@
-﻿
+
 function show_catalog() {
     //сворачивает полное описание у всех строк
     /*$("td[class=desc]").each(function(){		
@@ -120,6 +120,7 @@ $('a[rel=save_new_product]').live("click", function() {
     var title = $.trim($(".create_product").find('input[name=title]').val());
     var price = $.trim($(".create_product").find('input[name=price]').val()) - 0;
     var desc = $.trim($(".create_product").find('textarea[name=description]').val());
+	alert(desc);
     var err = 0;
 
     if (!desc || !title) {
@@ -137,6 +138,7 @@ $('a[rel=save_new_product]').live("click", function() {
                 url: "php/admin/Models/add_product.php",
                 title: title,
                 price: price,
+		desc: desc,
                 image_url: filename
             },
             cache: false,
