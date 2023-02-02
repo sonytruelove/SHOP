@@ -2,15 +2,17 @@
  class php_Models_cart
   {	  
 	  function addToCart($id, $count=1)
-	  {
-		$_SESSION['cart'][$id]=$_SESSION['cart'][$id]+$count;		
-		return true;
+	  {	if($_SESSION['cart']!=0){
+		$_SESSION['cart'][$id]=$_SESSION['cart'][$id]+$count;
+		return true;}
 	  }	  
 	  
 	  function getListItemId() 
-	  {	  	  		 
-		$listId=array_keys($_SESSION['cart']);
-		return $listId;	
+	  {	 $listId=[];
+		if(!empty($_SESSION['cart'])){
+			$listId=array_keys($_SESSION['cart']);
+		return $listId;}
+		return [];
 	  }	  
 	  
 	  function getTotalSumm() 
@@ -48,8 +50,8 @@
 	  
 	
 	 function isEmptyCart(){ 
-    if(array_key_exists("cart",$_SESSION)&&count($_SESSION['cart'])>0) return true; 
-    else return false;
+    if(array_key_exists("cart",$_SESSION) && !empty($_SESSION['cart'])) return false; 
+    return true;
     }
 	  
 	 
@@ -58,10 +60,11 @@
 		$total_summ ??= 0;  
 		$array_product_id=$this->getListItemId(); 
 		
-		$item_position = new php_Models_product();		
+		$item_position = new php_Models_product();
+		
 		foreach($array_product_id as $id){
 			$product_positions[]=$item_position->getProduct($id); 
-		}	
+		}
 			$table_cart='<div class="row px-2">
     <div  class="col-lg-1 col-sm-3 col-xs-12" style="height: 100px; line-height: 100px;">
      N

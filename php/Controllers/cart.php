@@ -4,7 +4,6 @@
      function index()
 	 {
 			$model=new php_Models_cart;	
-			
 			if(array_key_exists("refresh",$_REQUEST)){ 
 				$list_Item_Id=$_REQUEST;
 				

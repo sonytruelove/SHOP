@@ -1,5 +1,5 @@
 <h2>Cart</h2>
-<?php if($empty_cart):?>
+<?php if(!$empty_cart):?>
 	<form action="cart" method="post">
 	<?=$big_cart;?>
 	<div class="btn-group px-2 m-2">

@@ -33,7 +33,7 @@
 		   if($this->getCokieCart() && $_SESSION['cart']) 
 		   {
 				foreach ($_SESSION['cart'] as $id=>$count){ 
-					$sql = "SELECT p.price FROM product p WHERE id='{$id}'";
+					$sql = "SELECT p.PRICE FROM shop p WHERE ID='{$id}'";
 					$result = mysql_query($sql)  or die(mysql_error());
 					if($row = mysql_fetch_assoc($result))
 						 {		 
@@ -50,9 +50,5 @@
 	  return  $res;
 	 }
  }
-/*
-  Автор: Авдеев Марк.
-  e-mail: mark-avdeev@mail.ru
-  blog: lifeexample.ru
-*/
+
 ?>

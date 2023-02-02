@@ -9,6 +9,9 @@
 	<div class="media-body mx-left display-5 bg-dark text-white">
 	<?=$product['PRICE']?> $                  
 	</div>
+	<div class="media-body display-6 bg-dark text-white">
+	<?=$product['DESCRIPTION']?>                   
+	</div>
 	
 </div>
 	<div class=" p-4 pt-2 bg-transparent">

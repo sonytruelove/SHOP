@@ -1,3 +1,9 @@
+<?php 
+if(array_key_exists('route',$_GET))
+	$selected=$_GET['route'];
+if(array_key_exists('cart',$_SESSION))
+	$cartcount=count($_SESSION['cart']) ?? 0;
+?>
 <html>
 <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container px-4 px-lg-5">
@@ -8,10 +14,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="../../../../../shop/index">Home</a>
+              <a class="nav-link <?php if ($selected == "index" || $selected == null) echo ' active'; ?>"  aria-current="page" href="../../../../../shop/index">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../../../../../shop/about">About</a>
+              <a class="nav-link <?php if ($selected == "about") echo ' active'; ?>"  href="../../../../../shop/about">About</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown">Shop</a>
@@ -33,7 +39,7 @@
           </ul>
           <form class="d-flex">
             <button class="btn btn-outline-dark" type="submit" formaction="../../../../shop/cart">
-              <i class="bi-cart-fill me-1"></i> Cart <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+              <i class="bi-cart-fill me-1"></i> Cart <span class="badge bg-dark text-white ms-1 rounded-pill"><?=$cartcount?></span>
             </button>
           </form>
         </div>
