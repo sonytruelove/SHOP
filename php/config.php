@@ -1,6 +1,6 @@
 <?php
 const dbname = 'test';
-const dbpass = 'uniform1';
+const dbpass = '';
 const dbhost = 'localhost';
 const dbuser = 'root';
 ?>
