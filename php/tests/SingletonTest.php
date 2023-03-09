@@ -1,11 +1,9 @@
-<?php
-declare(strict_types=1);
-include_once '..\DB-singleton.php'; 
-xdebug_start_trace();
-class SingletonTest
-
+<?php declare(strict_types=1);
+use PHPUnit\Framework\TestCase;
+include_once 'C:/xampp/htdocs/shop/php/DB-singleton.php';
+final class SingletonTest extends TestCase
 {
-
+   
     public function testUniqueness()
 
     {
@@ -20,7 +18,5 @@ class SingletonTest
         $this->assertSame($firstCall, $secondCall);
 
     }
-
 }
-xdebug_stop_trace();
 ?>
